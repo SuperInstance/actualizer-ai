@@ -1,0 +1,11 @@
+name = "actualizer-ai"
+main = "src/worker.ts"
+compatibility_date = "2024-01-01"
+account_id = "049ff5e84ecf636b53b162cbb580aae6"
+
+[[kv_namespaces]]
+binding = "ACTUALIZER_KV"
+id = "9eccdaac22454c339b57ba9098bc04c6"
+
+[vars]
+AGENT_NAME = "Actualizer.ai"
