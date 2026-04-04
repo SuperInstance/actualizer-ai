@@ -601,6 +601,17 @@ export default {
       }
     }
 
+    
+    // ── Auto-Equip from cocapn-com catalog ──
+    if (url.pathname === '/api/equip' && request.method === 'GET') {
+      try {
+        const r = await fetch('https://cocapn-com.casey-digennaro.workers.dev/api/catalog');
+        const cat = await r.json();
+        const items = cat.items || cat || [];
+        return new Response(JSON.stringify({ suggestions: items.slice(0, 5).map((i: any) => ({ name: i.name, type: i.type })), total: items.length }), { headers });
+      } catch(e) { return new Response(JSON.stringify({ suggestions: [], error: String(e) }), { headers }); }
+    }
+
     return new Response('Not found', { status: 404, headers: { 'Content-Type': 'text/plain' } });
   },
 };
