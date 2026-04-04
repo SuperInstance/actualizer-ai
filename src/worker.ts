@@ -313,7 +313,9 @@ footer{text-align:center;padding:2rem;color:#475569;font-size:.8rem}
 </style></head><body>
 <div class="hero">
 <div>
-<h1>Actualizer.ai</h1>
+
+      <img src="https://cocapn-logos.casey-digennaro.workers.dev/img/cocapn-logo-v1.png" alt="Cocapn" style="width:64px;height:auto;margin-bottom:.5rem;border-radius:8px;display:block;margin-left:auto;margin-right:auto">
+      <h1>Actualizer.ai</h1>
 <p>Think in centuries, build in sprints. The reverse-actualization repo-agent that clones any project, time-travels through 7 horizons, and synthesizes roadmaps you can build today.</p>
 <a href="/app" class="btn btn-primary">Start Analysis</a>
 <a href="/setup" class="btn btn-secondary">Setup Keys</a>
