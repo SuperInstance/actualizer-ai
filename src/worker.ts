@@ -517,6 +517,7 @@ export default {
         timestamp: Date.now(),
       }), { headers: { 'Content-Type': 'application/json', 'Content-Security-Policy': CSP } });
     }
+  if (url.pathname === '/vessel.json') { try { const vj = await import('./vessel.json', { with: { type: 'json' } }); return new Response(JSON.stringify(vj.default || vj), { headers: { 'Content-Type': 'application/json' } }); } catch { return new Response('{}', { headers: { 'Content-Type': 'application/json' } }); } }
 
     // API routes
     if (url.pathname === '/api/ra/run' && request.method === 'POST') {
