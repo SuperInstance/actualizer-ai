@@ -348,7 +348,7 @@ footer{text-align:center;padding:2rem;color:#475569;font-size:.8rem}
 <div class="feature"><h3><span class="tag tag-amber">A/B Branches</span> Test Everything</h3><p>Generate branch schemas for optimization experiments. Open multiple tabs. Merge if better. Power users study commits; lay users just ask "what's new?"</p></div>
 </div>
 <footer>Built by Superinstance & Lucineer (DiGennaro et al.) — The repo IS the agent.</footer>
-</body></html>`;
+<div style="text-align:center;padding:24px;color:#475569;font-size:.75rem"><a href="https://the-fleet.casey-digennaro.workers.dev" style="color:#64748b">⚓ The Fleet</a> · <a href="https://cocapn.ai" style="color:#64748b">Cocapn</a></div></body></html>`;
 }
 
 function appPage(): string {
@@ -468,7 +468,7 @@ async function sendChat(){
   document.getElementById('chat-messages').innerHTML+='<div class="card" style="max-width:80%"><div class="body">'+(data.content||data.error||'No response')+'</div></div>';}catch(e){document.getElementById('chat-messages').innerHTML+='<div class="card" style="border-color:#ef4444"><div class="body" style="color:#fca5a5">Error: '+e.message+'</div></div>';}
 }
 loadReports();
-</script></body></html>`;
+</script><div style="text-align:center;padding:24px;color:#475569;font-size:.75rem"><a href="https://the-fleet.casey-digennaro.workers.dev" style="color:#64748b">⚓ The Fleet</a> · <a href="https://cocapn.ai" style="color:#64748b">Cocapn</a></div></body></html>`;
 }
 
 function setupPage(): string {
@@ -492,7 +492,7 @@ select{width:100%;padding:.5rem;background:#0f172a;border:1px solid #334155;bord
 <div class="step"><h3>Step 3: Local Models (Optional)</h3><p>Run Ollama/vLLM locally, expose via Cloudflare Tunnel, set <code>LOCAL_MODEL_URL</code> as secret.</p></div>
 <div class="tip"><strong>💡 Multi-model parallel ideation</strong> needs 2+ keys. More keys = richer synthesis. DeepSeek + z.ai is a great budget combo for background RA tasks.</div>
 <div class="tip"><strong>🎯 Recommended setup:</strong><br>• Interactive: OpenAI or Anthropic (premium quality)<br>• Background RA: DeepSeek + z.ai (ultra-cheap)<br>• Local: Ollama (free, your hardware)</div>
-</div></body></html>`;
+</div><div style="text-align:center;padding:24px;color:#475569;font-size:.75rem"><a href="https://the-fleet.casey-digennaro.workers.dev" style="color:#64748b">⚓ The Fleet</a> · <a href="https://cocapn.ai" style="color:#64748b">Cocapn</a></div></body></html>`;
 }
 
 // ── Worker ──
