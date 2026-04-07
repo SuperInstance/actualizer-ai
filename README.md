@@ -1,71 +1,75 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Lucineer/capitaine/master/docs/capitaine-logo.jpg" alt="Capitaine" width="120">
-</p>
+# Actualizer.ai
 
-<h1 align="center">actualizer-ai</h1>
+A planning vessel that works backward from future states to present actions, built for the Cocapn Fleet.
 
-<p align="center">Reverse-actualization vessel. Think backward from the future.</p>
-
-<p align="center">
-  <a href="https://github.com/Lucineer/actualizer-ai/issues">Issues</a> ·
-  <a href="#the-fleet">The Fleet</a>
-</p>
+**Live URL:** https://actualizer-ai.casey-digennaro.workers.dev
 
 ---
 
-**Fleet service** · Powered by [Capitaine](https://github.com/Lucineer/capitaine) · [Cocapn](https://github.com/Lucineer/cocapn)
+### Overview
+Most planning tools sequence tasks forward from the present. This one starts by defining a desired future outcome, then reasons backward through causal steps to identify present actions.
 
-A cocapn fleet service running on Cloudflare Workers.
+It implements a reverse-actualization protocol, analyzing multiple time horizons independently to surface assumptions and tradeoffs.
+
+### How it Works
+You provide a goal or endpoint. The vessel reasons backward from that future state through successive causal dependencies until it reaches actionable steps for today. It runs this analysis across six time horizons (1, 5, 10, 25, 50, and 100 years) in parallel.
+
+### What to Expect
+- A backward causal chain from your defined endpoint to present actions
+- Independent analysis across multiple time horizons
+- Output formatted as compass bearings (directional guidance) rather than prescriptive tasks
+- Model call metrics (quality, cost, latency) for transparency
+- Native compatibility with the Cocapn Fleet protocol
+
+### Limitations
+Reverse-actualization relies on model reasoning to infer causal steps. For highly novel or long-term futures, these inferred steps may contain gaps or speculative leaps.
+
+---
 
 ## Quick Start
 
-```bash
-gh repo fork Lucineer/actualizer-ai --clone
-cd actualizer-ai
-npx wrangler login
-npx wrangler deploy
-```
+1.  Fork this repository.
+2.  Clone your fork locally.
+3.  Deploy to Cloudflare Workers:
+    ```bash
+    npx wrangler deploy
+    ```
+4.  Configure API keys as Worker secrets (see below).
 
-## The Fleet
+## Configuration
 
+Add API keys as environment secrets via `wrangler secret put`. Keys are never transmitted outside your instance.
 
-<details>
-<summary><strong>⚓ The Fleet</strong></summary>
+| Secret | Purpose |
+|---|---|
+| `DEEPSEEK_API_KEY` | For DeepSeek models |
+| `DEEPINFRA_API_KEY` | For DeepInfra endpoints |
+| `SILICONFLOW_API_KEY` | For SiliconFlow inference |
 
-**Flagship vessels**
+You can configure any OpenAI-compatible provider at runtime.
 
-- [cocapn.ai](https://github.com/Lucineer/capitaine)
-- [personallog.ai](https://github.com/Lucineer/personallog-ai)
-- [businesslog.ai](https://github.com/Lucineer/businesslog-ai)
-- [studylog.ai](https://github.com/Lucineer/studylog-ai)
-- [makerlog.ai](https://github.com/Lucineer/makerlog-ai)
-- [playerlog.ai](https://github.com/Lucineer/playerlog-ai)
-- [dmlog.ai](https://github.com/Lucineer/dmlog-ai)
-- [reallog.ai](https://github.com/Lucineer/reallog-ai)
-- [deckboss.ai](https://github.com/Lucineer/deckboss-ai)
+---
 
-**Fleet services**
+## Technical Details
 
-- [Fleet Catalog](https://github.com/Lucineer/capitaine/blob/master/docs/fleet/FLEET.md)
-- [Git Agent (full)](https://github.com/Lucineer/git-agent)
-- [Cocapn Lite (minimal)](https://github.com/Lucineer/cocapn-lite)
-- [Fleet Orchestrator](https://github.com/Lucineer/fleet-orchestrator)
-- [Dead Reckoning Engine](https://github.com/Lucineer/dead-reckoning-engine)
-- [Dream Engine](https://github.com/Lucineer/dream-engine)
-- [Seed UI (5 layers)](https://github.com/Lucineer/seed-ui)
+- **Runtime:** Cloudflare Workers
+- **Dependencies:** Zero production dependencies
+- **License:** MIT
+- **Protocol:** Native Cocapn Fleet vessel
 
-**For power users**
+The code is structured for modification. Change the actualization logic, model routing, or output formatting in a single file and redeploy.
 
-- [Cocapn Lite (tabula rasa)](https://github.com/Lucineer/cocapn-lite)
-- [Cocapn (core platform)](https://github.com/Lucineer/cocapn)
-- [ZeroClaw (framework)](https://github.com/Lucineer/zeroclaw)
+---
 
-[View all 106 repos →](https://github.com/orgs/Lucineer/repositories)
-[Fleet manifest →](https://github.com/Lucineer/capitaine/blob/master/docs/fleet/FLEET.md)
+## Contributing
 
-</details>
+This project follows a fork-first philosophy. You are encouraged to fork the repository, modify it for your needs, and deploy your own instance. Pull requests for bug fixes or core protocol improvements are welcome.
 
+**License:** MIT License · Superinstance & Lucineer (DiGennaro et al.)
 
-## License
+---
 
-MIT · Superinstance & Lucineer (DiGennaro et al.)
+<div align="center">
+  <a href="https://the-fleet.casey-digennaro.workers.dev">The Fleet</a> · 
+  <a href="https://cocapn.ai">Cocapn</a>
+</div>
